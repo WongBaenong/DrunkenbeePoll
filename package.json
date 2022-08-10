@@ -4,7 +4,10 @@
   "description": "drunkenbee poll system",
   "main": "index.js",
   "scripts": {
-    "start": "node src/init.js",
+    "start": "node build/init.js",
+    "build": "npm run build:server && npm run build:assets",
+    "build:server": "babel src -d build",
+    "build:assets": "webpack --mode=production",
     "dev:server": "nodemon --exec babel-node src/init.js",
     "dev:assets": "webpack --mode=development -w"
   },
@@ -22,10 +25,10 @@
     "@notionhq/client": "^2.1.1",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "express-flash": "^0.0.2",
     "pug": "^3.0.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.10",
     "@babel/node": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
