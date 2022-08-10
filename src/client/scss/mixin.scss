@@ -1,0 +1,20 @@
+.weekday-mixin {
+  display: flex;
+  .weekday {
+    width: 50px;
+  }
+  .weekday-chk {
+    margin-right: 25px;
+  }
+  span {
+    margin: 0px 15px 5px 0px;
+    display: flex;
+    align-items: center;
+  }
+  input[type="number"] {
+    width: 40px;
+  }
+  .weekday-start {
+    margin-right: 10px;
+  }
+}

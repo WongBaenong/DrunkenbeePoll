@@ -1,8 +1,21 @@
+include mixins/weekday
+
 doctype html 
 html(lang="ko")
     head 
         title Drunkenbee Poll 
+        link(rel="stylesheet", href="/static/css/styles.css")
     body 
-        form(method="POST")
-            input(placeholder="본캐", type="text", required, name="origin")
+        h1.title 술벌 쿠크세이튼 파티 조정용
+        h1.description 쿠크 파티 조정하기 위해 만든 임시 조사 페이지임. 본캐릭 닉네임(ex. 베니뻐) 입력하고 수~화 가능한 날짜 및 시간대 적으면 됨(보통 가능한 시간)
+        hr
+        form(method="POST")#kokuForm
+            input(placeholder="본캐릭 닉네임 입력", type="text", required, name="nickname")#nickname
+            each weekday in ["wed", "thu", "fri", "sat", "sun", "mon", "tue"]
+                +weekday(weekday)
+            input(placeholder="특이사항(본캐는 딜찍 따로감 등)" type="text", name="etc").weekday-etc
+            input(type="submit")
+        span #{message}
+    script(src="/static/js/main.js") 
+    script(src="/static/js/schedule.js") 
             

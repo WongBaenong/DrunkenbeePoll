@@ -1,5 +1,8 @@
 mixin weekday(weekday)
     div.weekday-mixin 
-        input(type="checkbox" name=`chk${weekday}`).chk
-        input(type="text" name=`start${weekday}`)
-        input(type="text" name=`end${weekday}`)
+        span.weekday=`${weekday}`
+        input(type="checkbox" name=`chk${weekday}`).weekday-chk
+        span="출발가능"
+        input(type="number" name=`start${weekday}` value=20).weekday-start
+        span="쫑내는 시간"
+        input(type="number" name=`end${weekday}` value=24).weekday-end
